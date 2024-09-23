@@ -1,7 +1,9 @@
 const notesList = document.getElementById('notesList');
 const addNoteBtn = document.getElementById('addNoteBtn');
 const searchBox = document.getElementById('search');
-const noNotesIndicator = document.getElementById('noNotesIndicator')
+const noNotesIndicator = document.getElementById('noNotesIndicator');
+const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
 
 // let notes = [{title: 'notatka', body: 'notować'}];
 let notes = [];
@@ -19,31 +21,45 @@ const editIcon =
 const createNoteElem = ({title, body}, index) => {
     const date = new Date();
 
-    const month = date.toLocaleString('en-EN', { month: 'long' });
-
-    const day = date.getDate();
+    const formattedDate = `${date.toLocaleString('en-EN', { month: 'long' })} ${date.getDate()}`
 
     const elem = document.createElement('div');
 
     elem.classList.add('note-item');
 
-    elem.innerHTML = `<div class="note-header">
+    elem.innerHTML = 
+            `<div class="note-header">
                 <div class="note-title font-weight-500">${title}</div>
                 <div>
                     <button class="note-btn">${editIcon}</button>
-                    <button class="note-btn" onclick="deleteNote(${index})">${deleteIcon}</button>
+                    <button class="note-btn" onclick="openDeleteModal(${index})">${deleteIcon}</button>
                 </div>
             </div>
             <div class="note-body">${body}</div>
-            <div>${month} ${day}</div>`
+            <div style="font-size:12px;">${formattedDate}</div>`
+            //I know it's inconsequential to use an inline style above but I didn't want to add another 
+            //class for a single, static rule 
 
     return elem;
 }
 
-function deleteNote(index) {
-    notes.splice(index, 1);
-    renderNotes();
+function openDeleteModal(index) {
+    console.log(notes);
+    noteToDeleteIndex = index;  // Set the index of the note to be deleted
+    deleteModal.classList.add('active');  // Show modal
 }
+
+cancelDeleteBtn.addEventListener('click', () => {
+    noteToDeleteIndex = null;
+    deleteModal.classList.remove('active')
+})
+
+confirmDeleteBtn.addEventListener('click', () => {
+    notes.splice(noteToDeleteIndex, 1);
+    noteToDeleteIndex = null;
+    renderNotes();
+    deleteModal.classList.remove('active')
+})
 
 function updateAddNoteBtn() {
     if (notes.length === 0) {
@@ -63,7 +79,7 @@ function updateAddNoteBtn() {
 }
 
 const renderNotes = () => {
-    notesList.innerHTML = '';  // Clear the list
+    notesList.innerHTML = '';
     notes.forEach((note, index) => {
         const noteElement = createNoteElem(note, index)
         notesList.appendChild(noteElement);

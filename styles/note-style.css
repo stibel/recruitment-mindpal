@@ -16,3 +16,7 @@
     border: none;
     background-color: #fff;
 }
+
+.note-body {
+    margin: 12px 0;
+}

@@ -77,7 +77,7 @@ body {
 }
 
 .add-another-note-btn {
-    margin: 0 16px;
+    margin: 0 16px 24px;
     background-color: #6a0dad;
     cursor: pointer;
     color: white;
