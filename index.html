@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes App</title>
-    <link rel="stylesheet" href="styles/app-style.css" />
-    <link rel="stylesheet" href="styles/note-style.css" />
-    <link rel="stylesheet" href="styles/modal-style.css" />
+    <link rel="stylesheet" href="css/app-style.css" />
+    <link rel="stylesheet" href="css/note-style.css" />
+    <link rel="stylesheet" href="css/search.css" />
+    <link rel="stylesheet" href="css/form-style.css" />
+    <link rel="stylesheet" href="css/modal-style.css" />
+    <link rel="stylesheet" href="css/helpers.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
@@ -20,9 +23,30 @@
             <path d="M8.40636 22.677V23.41C8.18802 23.1882 8.09595 22.955 8.09595 22.677V7.32284C8.09595 7.01916 8.19532 6.77787 8.41482 6.55837C8.63925 6.33394 8.87479 6.2395 9.15636 6.2395H17.1415L21.9272 11.0252V22.677C21.9272 22.9586 21.8328 23.1941 21.6083 23.4185C21.3888 23.638 21.1475 23.7374 20.8439 23.7374H9.15636C8.87835 23.7374 8.64522 23.6454 8.42334 23.427H9.15636H20.8439H21.5939V22.677V11.5853V10.8353H20.8439H17.2626V7.32284V6.57284H16.5126H9.15636H8.40636V7.32284V11.5853V22.677Z" fill="#1B1C1E" stroke="#1B1C1E" stroke-width="1.5"/>
           </svg>            
           <div class="font-weight-500">Notes</div>
+        </div>        
+
+        <div class="search-wrapper"> 
+          <svg class="search-icon" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.9 18.975L10.325 12.4C9.825 12.8333 9.24167 13.1708 8.575 13.4125C7.90833 13.6541 7.2 13.775 6.45 13.775C4.65 13.775 3.125 13.15 1.875 11.9C0.625 10.65 0 9.14164 0 7.37498C0 5.60831 0.625 4.09998 1.875 2.84998C3.125 1.59998 4.64167 0.974976 6.425 0.974976C8.19167 0.974976 9.69583 1.59998 10.9375 2.84998C12.1792 4.09998 12.8 5.60831 12.8 7.37498C12.8 8.09164 12.6833 8.78331 12.45 9.44998C12.2167 10.1166 11.8667 10.7416 11.4 11.325L18 17.875L16.9 18.975ZM6.425 12.275C7.775 12.275 8.925 11.7958 9.875 10.8375C10.825 9.87914 11.3 8.72498 11.3 7.37498C11.3 6.02498 10.825 4.87081 9.875 3.91248C8.925 2.95414 7.775 2.47498 6.425 2.47498C5.05833 2.47498 3.89583 2.95414 2.9375 3.91248C1.97917 4.87081 1.5 6.02498 1.5 7.37498C1.5 8.72498 1.97917 9.87914 2.9375 10.8375C3.89583 11.7958 5.05833 12.275 6.425 12.275Z" fill="#5B5C5E"/>
+          </svg>
+      
+          <input id="search" type="text" placeholder="Search notes..." class="search-box clickable-elem border-radius-12" />
         </div>
 
-        <input type="text" id="search" placeholder="Search notes..." class="search-box clickable-elem">
+        <form id="noteForm" class="note-form hidden">
+          <div class="form-header">
+              <span id="formTitle" style="font-size:16px;" class="font-weight-500"></span>
+              <button type="button" id="cancelFormBtn" class="form-cancel-btn">Cancel</button>
+          </div>
+          <div class="form-body">
+              <input type="text" id="noteTitleInput" class="form-input border-radius-12" placeholder="Note title">
+              <textarea id="noteBodyInput" class="form-textarea border-radius-12" placeholder="Your note"></textarea>
+          </div>
+          <div class="form-footer">
+              <button type="submit" id="saveNoteBtn" class="form-save-btn font-weight-500 border-radius-12">Save</button>
+          </div>
+        </form>
+
 
         <div id="noNotesIndicator" class="no-notes-indicator centered-flex">
           <div class="info-wrapper centered-flex">
@@ -36,7 +60,7 @@
           <div class="no-notes-txt">Add a note to keep track of your learnings.</div>
         </div>
 
-        <button id="addNoteBtn" class="add-note-btn centered-flex">
+        <button id="addNoteBtn" class="add-note-btn centered-flex border-radius-12">
           <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M13.25 14.425H12.75V14.925V17.65H12.25V14.925V14.425H11.75H9V13.925H11.75H12.25V13.425V10.675H12.75V13.425V13.925H13.25H16V14.425H13.25ZM14.775 7.65V3.5V3H14.275H6H5.5V3.5V8.15V20.5V21H6H19H19.5V20.5V8.15V7.65H19H14.775ZM19 21.5H6C5.74128 21.5 5.5161 21.409 5.30355 21.1964C5.09101 20.9839 5 20.7587 5 20.5V3.5C5 3.24128 5.09101 3.0161 5.30355 2.80355C5.5161 2.59101 5.74128 2.5 6 2.5H14.8179L20 7.68211V20.5C20 20.7587 19.909 20.9839 19.6964 21.1964C19.4839 21.409 19.2587 21.5 19 21.5Z" fill="black" stroke="#1B1C1E"/>
           </svg>    
@@ -46,19 +70,23 @@
         <div id="notesList" class="notes-list">
         </div>
 
-        <div id="deleteModal" class="centered-flex modal">
+        <div id="deleteModal" class="modal">
           <div class="modal-content">
             <div style="font-size:20px;" class="font-weight-500">Delete note</div>
             <div style="margin:12px 0;">Are you sure you want to delete this note?</div>
             <div class="modal-footer">
-              <button id="cancelDeleteBtn" class="modal-btn cancel-btn font-weight-500">Cancel</button>
-              <button id="confirmDeleteBtn" class="modal-btn confirm-btn font-weight-500">Delete</button>
+              <button id="cancelDeleteBtn" class="modal-btn modal-cancel-btn font-weight-500 border-radius-12">Cancel</button>
+              <button id="confirmDeleteBtn" class="modal-btn modal-confirm-btn font-weight-500 border-radius-12">Delete</button>
             </div>
           </div>
         </div>
     </div>
-
-    <script src="index.js"></script>
+    
+    <script src="js/dom_elements.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/notes.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>
 

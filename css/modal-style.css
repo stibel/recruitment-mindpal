@@ -1,5 +1,7 @@
 .modal {
     display: none;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -25,18 +27,17 @@
 .modal-btn {
     width: 140px;
     padding: 10px 20px;
-    border-radius: 12px;
     border: none;
     cursor: pointer;
     font-size: 16px;
 }
 
-.confirm-btn {
+.modal-confirm-btn {
     background-color: #6a0dad;
     color: white;
 }
 
-.cancel-btn {
+.modal-cancel-btn {
     background-color: #fff;
     border: 1px solid #BCBCBD;
 }

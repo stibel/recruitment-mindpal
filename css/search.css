@@ -1,0 +1,18 @@
+.search-wrapper {
+    margin: 20px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    position: relative;
+    width: calc(100% - 16px);
+    background-color: #EEEFF0;
+    padding-left: 36px;
+}
+
+.search-icon {
+    z-index: 1;
+    position: absolute;
+    padding-left: 12px;
+}

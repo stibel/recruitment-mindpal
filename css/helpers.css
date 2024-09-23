@@ -1,0 +1,19 @@
+/* here I gathered rules which were repeated enough time to draw my attention */
+
+.centered-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.border-radius-12 {
+    border-radius: 12px;
+}
+
+.inactive {
+    display: none;
+}
