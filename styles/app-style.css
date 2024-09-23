@@ -75,3 +75,14 @@ body {
     background-color: #fff;
     gap: 10px
 }
+
+.add-another-note-btn {
+    margin: 0 16px;
+    background-color: #6a0dad;
+    cursor: pointer;
+    color: white;
+}
+
+.notes-list {
+    padding: 0 16px;
+}

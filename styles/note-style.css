@@ -1,0 +1,18 @@
+.note-item {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 14px;
+    box-shadow: 0px 4px 16px 0px #00000012;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-btn {
+    border: none;
+    background-color: #fff;
+}
