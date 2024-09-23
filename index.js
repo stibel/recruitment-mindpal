@@ -1,3 +1,4 @@
-const elem = document.getElementById("header");
-
-elem.addEventListener('click', () => elem.innerText += "click")
+const notesList = document.getElementById('notesList');
+const addNoteBtn = document.getElementById('addNoteBtn');
+const searchBox = document.getElementById('search');
+const noNotesIndicator = document.getElementById('noNotesIndicator')

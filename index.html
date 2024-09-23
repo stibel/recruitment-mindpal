@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <main class="main">
-        <h1 id="header" class="header">Welcome to My Website!!!</h1>  
-    </main>
+    <title>Notes App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <div>
+          <!-- We need a small, uninteractive image so inline svg seems to be the best option -->
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.40636 22.677V23.41C8.18802 23.1882 8.09595 22.955 8.09595 22.677V7.32284C8.09595 7.01916 8.19532 6.77787 8.41482 6.55837C8.63925 6.33394 8.87479 6.2395 9.15636 6.2395H17.1415L21.9272 11.0252V22.677C21.9272 22.9586 21.8328 23.1941 21.6083 23.4185C21.3888 23.638 21.1475 23.7374 20.8439 23.7374H9.15636C8.87835 23.7374 8.64522 23.6454 8.42334 23.427H9.15636H20.8439H21.5939V22.677V11.5853V10.8353H20.8439H17.2626V7.32284V6.57284H16.5126H9.15636H8.40636V7.32284V11.5853V22.677Z" fill="#1B1C1E" stroke="#1B1C1E" stroke-width="1.5"/>
+          </svg>            
+          <div class="font-weight-500">Notes</div>
+        </div>
+
+        <input type="text" id="search" placeholder="Search notes...">
+
+        <div>
+          <div>
+            <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.6749 16.15H11.4749V10H9.6749V16.15ZM10.4999 8.35C10.7999 8.35 11.0457 8.25417 11.2374 8.0625C11.4291 7.87083 11.5249 7.63333 11.5249 7.35C11.5249 7.03333 11.4291 6.77917 11.2374 6.5875C11.0457 6.39583 10.7999 6.3 10.4999 6.3C10.1999 6.3 9.95407 6.39583 9.7624 6.5875C9.57074 6.77917 9.4749 7.03333 9.4749 7.35C9.4749 7.63333 9.57074 7.87083 9.7624 8.0625C9.95407 8.25417 10.1999 8.35 10.4999 8.35ZM10.4999 21.35C9.03324 21.35 7.67074 21.0875 6.4124 20.5625C5.15407 20.0375 4.05824 19.3083 3.1249 18.375C2.19157 17.4417 1.4624 16.3458 0.937402 15.0875C0.412402 13.8292 0.149902 12.4667 0.149902 11C0.149902 9.55 0.412402 8.19167 0.937402 6.925C1.4624 5.65833 2.19157 4.5625 3.1249 3.6375C4.05824 2.7125 5.15407 1.97917 6.4124 1.4375C7.67074 0.895833 9.03324 0.625 10.4999 0.625C11.9499 0.625 13.3082 0.895833 14.5749 1.4375C15.8416 1.97917 16.9374 2.7125 17.8624 3.6375C18.7874 4.5625 19.5207 5.65417 20.0624 6.9125C20.6041 8.17083 20.8749 9.53333 20.8749 11C20.8749 12.4667 20.6041 13.8292 20.0624 15.0875C19.5207 16.3458 18.7874 17.4417 17.8624 18.375C16.9374 19.3083 15.8416 20.0375 14.5749 20.5625C13.3082 21.0875 11.9499 21.35 10.4999 21.35ZM10.4999 19.375C12.7999 19.375 14.7707 18.5583 16.4124 16.925C18.0541 15.2917 18.8749 13.3167 18.8749 11C18.8749 8.7 18.0541 6.72917 16.4124 5.0875C14.7707 3.44583 12.7999 2.625 10.4999 2.625C8.1999 2.625 6.22907 3.44583 4.5874 5.0875C2.94574 6.72917 2.1249 8.7 2.1249 11C2.1249 13.3167 2.94574 15.2917 4.5874 16.925C6.22907 18.5583 8.1999 19.375 10.4999 19.375Z" fill="white"/>
+            </svg>
+          </div>
+
+          <div>No notes yet</div>
+
+          <div>Add a note to keep track of your learnings.</div>
+        </div>
+
+        <button id="addNoteBtn">
+          <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.25 14.425H12.75V14.925V17.65H12.25V14.925V14.425H11.75H9V13.925H11.75H12.25V13.425V10.675H12.75V13.425V13.925H13.25H16V14.425H13.25ZM14.775 7.65V3.5V3H14.275H6H5.5V3.5V8.15V20.5V21H6H19H19.5V20.5V8.15V7.65H19H14.775ZM19 21.5H6C5.74128 21.5 5.5161 21.409 5.30355 21.1964C5.09101 20.9839 5 20.7587 5 20.5V3.5C5 3.24128 5.09101 3.0161 5.30355 2.80355C5.5161 2.59101 5.74128 2.5 6 2.5H14.8179L20 7.68211V20.5C20 20.7587 19.909 20.9839 19.6964 21.1964C19.4839 21.409 19.2587 21.5 19 21.5Z" fill="black" stroke="#1B1C1E"/>
+          </svg>    
+          Add New
+        </button>
+
+        <div id="notesList" class="notes-list">
+        </div>
+    </div>
+
     <script src="index.js"></script>
-  </body>
+</body>
 </html>
+
