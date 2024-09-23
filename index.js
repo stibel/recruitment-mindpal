@@ -78,25 +78,30 @@ function updateAddNoteBtn() {
     }
 }
 
-const renderNotes = () => {
+const renderNotes = (notesToRender) => {
     notesList.innerHTML = '';
-    notes.forEach((note, index) => {
+    (notesToRender ? notesToRender : notes).forEach((note, index) => {
         const noteElement = createNoteElem(note, index)
         notesList.appendChild(noteElement);
     });
     updateAddNoteBtn();
 }
 
-
-
 addNoteBtn.addEventListener('click', () => {
-    const title = prompt('Enter note title:');
-    const body = prompt('Enter note body:');
+    const title = prompt('Enter note title:').trim();
+    const body = prompt('Enter note body:').trim();
     if (title && body) {
         notes.push({ title, body });
         renderNotes();
     }
 });
 
+searchBox.addEventListener('input', ({target: {value}}) => {
+    const query = value.toLowerCase().trim();
+    const filteredNotes = notes.filter(note => 
+        note.title.toLowerCase().includes(query) || note.body.toLowerCase().includes(query)
+    );
+    renderNotes(filteredNotes);
+});
 
 renderNotes();
