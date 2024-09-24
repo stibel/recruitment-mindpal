@@ -1,3 +1,7 @@
+.notes-list {
+    padding: 0 16px;
+}
+
 .note-item {
     margin-bottom: 16px;
     padding: 12px;
