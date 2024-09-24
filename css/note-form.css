@@ -21,13 +21,23 @@
 .form-input, .form-textarea {
     margin-bottom: 16px;
     padding: 8px 12px;
-    border: none;
+    /* prevent layout shift on focus */
+    border: 1px solid transparent;
     background-color: #EEEFF0;
     font-family: "Inter", Arial, sans-serif;
+
+    &:focus {
+        outline: 1px solid #000;
+        background-color: #FFF;
+    
+        &::placeholder {
+            color: transparent;
+        }
+    }
 }
 
 .form-textarea {
-    min-height: 100px;
+    height: 210px;
 }
 
 .form-footer {
